@@ -118,3 +118,47 @@ class LinkedList:
             # update the current node to the next node in the list
             current = current.get_next()
         return max_value
+
+
+class Stack:
+    def __init__(self):
+        self.size = 0
+        self.storage = LinkedList()
+
+    def __len__(self):
+        return self.size
+
+    def push(self, value):
+        self.storage.add_to_tail(value)
+        self.size += 1
+
+    def pop(self):
+        if self.size > 0:
+            self.size -= 1
+            return self.storage.remove_tail()
+        else:
+            return None
+
+
+class Queue:
+    def __init__(self):
+        self.size = 0
+        self.storage = LinkedList()
+
+    def __str__(self):
+        return (f'{self.storage}')
+
+    def __len__(self):
+        return self.size
+
+    def enqueue(self, value):
+        self.storage.add_to_tail(value)
+        self.size += 1
+
+    def dequeue(self):
+        if self.size > 0:
+            value = self.storage.remove_head()
+            self.size -= 1
+            return value
+        else:
+            return None

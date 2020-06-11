@@ -23,6 +23,9 @@ class LinkedList:
         # reference to the tail of the list
         self.tail = None
 
+    def __len__(self):
+        return self.length
+
     def add_to_tail(self, value):
         # wrap the input value in a node
         new_node = Node(value, None)
